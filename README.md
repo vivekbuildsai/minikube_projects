@@ -1,167 +1,160 @@
-# 🚀 Project 1 - Deploy Nginx on Kubernetes using Minikube
+# 🚀 Kubernetes Projects with Minikube
 
-## 📌 Overview
+![Kubernetes](https://img.shields.io/badge/Kubernetes-v1.30-blue?logo=kubernetes)
+![Docker](https://img.shields.io/badge/Docker-Containerization-blue?logo=docker)
+![Python](https://img.shields.io/badge/Python-3.x-yellow?logo=python)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-This project demonstrates the deployment of a simple **Nginx web server** on a **Kubernetes cluster using Minikube**.
+## 📌 About This Repository
 
-The primary goal of this project is to understand the core Kubernetes objects and deployment workflow by containerizing and exposing an application.
+This repository contains a collection of hands-on **Kubernetes projects** built using **Minikube**. The projects are designed to progress from Kubernetes fundamentals to production-oriented concepts.
 
-This is the first project in my Kubernetes learning journey.
+The objective is to gain practical experience with:
 
----
+- Kubernetes Fundamentals
+- Docker Containerization
+- Application Deployment
+- Kubernetes Networking
+- Configuration Management
+- Storage Management
+- Monitoring & Scaling
+- CI/CD
+- Production Best Practices
 
-# 🏗 Architecture
-
-```
-           Browser
-               │
-               ▼
-     NodePort Service
-               │
-               ▼
-          Nginx Pod
-               │
-               ▼
-         Nginx Container
-```
+Each project builds on concepts learned in the previous one, creating a structured learning path.
 
 ---
 
-# 📂 Project Structure
-
-```
-project1-nginx/
-
-├── nginx-deployment.yaml
-├── nginx-service.yaml
-└── README.md
-```
-
----
-
-# ⚙ Technologies Used
+# 🛠 Tech Stack
 
 - Kubernetes
 - Minikube
 - Docker
+- Python
+- Flask
 - Nginx
-- kubectl
+- MySQL
 - YAML
+- Git
+- GitHub
 
 ---
 
-# 🚀 Features
+# 📚 Project Roadmap
 
-- Deploy Nginx using a Kubernetes Deployment
-- Expose the application using a NodePort Service
-- Access the application from a web browser
-- Learn Kubernetes resource management using kubectl
-- Understand Pod lifecycle and Service networking
-
----
-
-# 📦 Kubernetes Resources
-
-## Deployment
-
-- 1 Replica
-- Nginx Container
-- Automatic Pod recreation on failure
-
-## Service
-
-- NodePort
-- External browser access
+| Project | Status | Topics Covered |
+|----------|:------:|----------------|
+| ✅ Project 1 - Nginx Deployment | Completed | Pods, Deployments, ReplicaSets, NodePort |
+| ✅ Project 2 - Three-Tier Application | Completed | Frontend, Backend, ClusterIP, NodePort, Kubernetes DNS, Reverse Proxy |
+| 🚧 Project 3 - ConfigMaps, Secrets & Persistent Volumes | In Progress | ConfigMaps, Secrets, PV, PVC |
+| ⏳ Project 4 - Ingress Controller | Planned | Ingress, Routing |
+| ⏳ Project 5 - Horizontal Pod Autoscaler | Planned | Autoscaling |
+| ⏳ Project 6 - Helm Charts | Planned | Package Management |
+| ⏳ Project 7 - Monitoring | Planned | Prometheus, Grafana |
+| ⏳ Project 8 - Logging | Planned | EFK / Loki Stack |
+| ⏳ Project 9 - CI/CD | Planned | GitHub Actions, Kubernetes Deployment |
+| ⏳ Project 10 - Production Deployment | Planned | End-to-End Production Project |
 
 ---
 
-# 🌐 Architecture Flow
+# 📂 Repository Structure
 
 ```
-Browser
-    │
-    ▼
-NodePort Service
-    │
-    ▼
-Nginx Pod
-    │
-    ▼
-Nginx Container
+minikube_projects/
+
+├── project1-nginx/
+│
+├── project2-three-tier-app/
+│
+├── project3-configmap-secret-pv/
+│
+├── project4-ingress/
+│
+├── project5-hpa/
+│
+├── project6-helm/
+│
+├── project7-monitoring/
+│
+├── project8-logging/
+│
+├── project9-cicd/
+│
+└── project10-production/
 ```
 
 ---
 
-# ▶ Running the Project
+# 🎯 Learning Journey
+
+### Project 1
+
+- Kubernetes Cluster
+- Minikube
+- Pods
+- Deployments
+- ReplicaSets
+- NodePort Services
+- kubectl Basics
+
+---
+
+### Project 2
+
+- Multi-tier Application
+- Flask Backend
+- Nginx Frontend
+- Kubernetes DNS
+- ClusterIP Services
+- NodePort Services
+- Reverse Proxy
+- Service Discovery
+
+---
+
+### Project 3
+
+- ConfigMaps
+- Secrets
+- Environment Variables
+- Persistent Volumes
+- Persistent Volume Claims
+
+---
+
+### Upcoming Topics
+
+- Ingress
+- Autoscaling
+- Helm
+- Monitoring
+- Logging
+- CI/CD
+- Production Deployments
+
+---
+
+# 🚀 Getting Started
 
 ## Clone Repository
 
 ```bash
-git clone <repository-url>
-cd project1-nginx
+git clone https://github.com/<your-username>/minikube_projects.git
 ```
+
+Navigate to the project you want to explore.
+
+Example:
+
+```bash
+cd project2-three-tier-app
+```
+
+Each project contains its own detailed **README.md** with setup instructions and explanations.
 
 ---
 
-## Start Minikube
-
-```bash
-minikube start
-```
-
----
-
-## Apply Kubernetes Manifests
-
-Deploy Nginx
-
-```bash
-kubectl apply -f nginx-deployment.yaml
-```
-
-Create the Service
-
-```bash
-kubectl apply -f nginx-service.yaml
-```
-
----
-
-## Verify Deployment
-
-```bash
-kubectl get deployments
-```
-
----
-
-## Verify Pods
-
-```bash
-kubectl get pods
-```
-
----
-
-## Verify Services
-
-```bash
-kubectl get svc
-```
-
----
-
-## Access the Application
-
-```bash
-minikube service nginx-service
-```
-
-This command automatically opens the Nginx welcome page in your default web browser.
-
----
-
-# 🔍 Useful Commands
+# 🧰 Common Kubernetes Commands
 
 ```bash
 kubectl get pods
@@ -169,6 +162,8 @@ kubectl get pods
 kubectl get deployments
 
 kubectl get svc
+
+kubectl get all
 
 kubectl describe pod <pod-name>
 
@@ -176,73 +171,57 @@ kubectl logs <pod-name>
 
 kubectl exec -it <pod-name> -- sh
 
-kubectl delete pod <pod-name>
+kubectl rollout restart deployment <deployment-name>
 
-kubectl rollout restart deployment nginx-deployment
+kubectl rollout status deployment <deployment-name>
 
-kubectl rollout status deployment nginx-deployment
-
-kubectl get all
+kubectl get endpoints
 ```
 
 ---
 
-# 📚 Kubernetes Concepts Learned
+# 💡 Skills Demonstrated
 
-- Kubernetes Cluster
-- Minikube
-- Pods
-- Deployments
-- ReplicaSets
-- Services
-- NodePort
-- Labels
-- Selectors
-- YAML Manifests
-- kubectl Commands
-- Pod Lifecycle
-- Container Networking
+- Kubernetes Administration
+- Docker Containerization
+- YAML Configuration
+- Application Deployment
+- Kubernetes Networking
+- Service Discovery
+- Reverse Proxy Configuration
+- Configuration Management
+- Persistent Storage
+- Troubleshooting with kubectl
 
 ---
 
-# 🧠 Key Learnings
+# 📖 Learning Resources
 
-During this project, I learned:
-
-- How Kubernetes Deployments manage Pods
-- Difference between Pods and Deployments
-- How ReplicaSets maintain the desired number of Pods
-- How NodePort exposes an application outside the cluster
-- How Services route traffic to Pods using Labels and Selectors
-- How to inspect Kubernetes resources using kubectl
-- Basic troubleshooting using logs and describe commands
+- Kubernetes Documentation
+- Docker Documentation
+- Minikube Documentation
 
 ---
 
-# 🎯 Skills Demonstrated
+# 🎯 Goals
+
+By completing this repository, I aim to demonstrate practical knowledge of:
 
 - Kubernetes Fundamentals
 - Container Orchestration
-- YAML Configuration
-- kubectl CLI
-- Kubernetes Networking
-- Application Deployment
-- Service Exposure
-- Troubleshooting Kubernetes Resources
+- Production-Ready Deployments
+- Infrastructure Automation
+- DevOps Best Practices
 
 ---
 
-# 📌 Future Improvements
+# 📈 Repository Progress
 
-The next projects in this learning series will cover:
+- ✅ Beginner Kubernetes Concepts
+- ✅ Multi-tier Application Deployment
+- 🚧 Production Kubernetes Features
+- ⏳ Advanced Kubernetes Ecosystem
 
-- Multi-tier applications
-- ClusterIP Services
-- ConfigMaps
-- Secrets
-- Persistent Volumes
-- Ingress
-- Horizontal Pod Autoscaler (HPA)
-- Helm Charts
-- Monitoring with Prometheus & Grafana
-- CI/CD with GitHub Actions
+---
+
+## ⭐ If you found this repository useful, feel free to star it!
